@@ -1,7 +1,3 @@
-
-
-
-
 var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
         this.el = el;
@@ -52,46 +48,24 @@ var TxtType = function(el, toRotate, period) {
               new TxtType(elements[i], JSON.parse(toRotate), period);
             }
         }
-        // INJECT CSS
+       
         var css = document.createElement("style");
         css.type = "text/css";
         css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
         document.body.appendChild(css);
     };
 
-var lastScrollTop;
-navbar = document.getElementById('navbar');
-window.addEventListener('scroll',function(){
-var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-if(scrollTop > lastScrollTop){
-navbar.style.top='-80px';
+
+const nav = document.getElementById("nav2");
+
+for(const link of nav.getElementsByTagName("a")) {  
+  link.onmousemove = e => {
+    const rect = link.getBoundingClientRect(),    
+          img = link.querySelector("img");
+    
+    img.style.left = `${e.clientX - rect.left}px`;
+    img.style.top = `${e.clientY - rect.top}px`;
+  }
 }
-else{
-navbar.style.top='0';
-}
-lastScrollTop = scrollTop;
-});
 
-
-
-const gridImages = document.querySelectorAll(".grid > img");
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-
-gridImages.forEach((img) => {
-  img.addEventListener("click", () => {
- 
-    lightbox.classList.add("active");
-
-    lightboxImg.src = img.src;
-  });
-});
-
-
-lightbox.addEventListener("click", (e) => {
-
-  if (e.target !== e.currentTarget) return;
-
-  lightbox.classList.remove("active");
-});
 
