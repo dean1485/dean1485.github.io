@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-html {
+html{
     scroll-behavior: smooth;
     margin-top: 0;
 }
@@ -16,6 +16,7 @@ body{
     background: #222629;
     color: white;
     margin: 0;
+    overflow-x: hidden;
 }
 
 #header{
@@ -33,13 +34,16 @@ body{
 }
 
 .container{
-    margin-top: 100px;
+    margin-top: 5px;
     padding: 5px 10%;
 }
 
 #containers{
+    position: relative;
+    display:flex;
     margin-top: 20px;
     padding: 5px 10%; 
+    z-index: 1;
 }
 #containers2{
     margin-top: 20px;
@@ -56,6 +60,7 @@ body{
 }
 
 nav{ 
+    background-color:#222629;
     top: 0;
     padding-top: 0;
     width: 100%;
@@ -132,7 +137,7 @@ h1{
 }
 
 #skills{
-    height: 100vh;
+     
     color: white;
     display:grid;
     place-items: center;
@@ -149,6 +154,11 @@ h1{
     align-content: space-between;
 }
 
+.wrap {
+  display: flex;
+}
+
+
 .col-1{
     
     float:left;
@@ -158,10 +168,11 @@ h1{
 }
 
 .col-2{
-   
-    padding: 10px;
+   float: right;
+    padding: 50px;
     flex-basis: 45%;
     width: 30%;
+     
 }
 
 .sub{
@@ -196,7 +207,7 @@ h1{
     display: flex;
     flex-wrap: wrap;
     max-width: 600px;
-    margin: 50px auto;
+    margin: 10px auto;
 }
 .mytabs input[type="radio"] {
     display: none;
@@ -278,7 +289,7 @@ h1{
 }
 
 .button {
-    position: absolute;
+position: absolute;
   border-radius: 4px;
   background-color: #474b4f;
   border: none;
@@ -301,8 +312,8 @@ h1{
 }
 
 .button span:after {
-  content: '»';
-    color:#86c232;
+  content: ">";
+  color:#86c232;
   position: absolute;
   opacity: 0;
   top: 0;
@@ -370,10 +381,9 @@ p1{
   font-size:30px;
   font-weight:bold;
   padding-top:5px;  
-  position:relative;
+  padding: 20px;
   width:100%;
   bottom:45%;
-  display:block;
 margin-top: 0;
 }
 
@@ -609,4 +619,32 @@ nav2 > a:hover > img {
 
 .cv{
     color: #86c232;
+}
+
+
+.card-list{
+  display:flex;
+  padding:3rem;
+}
+
+.card{
+  display:flex;
+  position:inherit;
+  flex-direction:column;
+  height:380px;
+  max-width:300px;
+  min-width:300px;
+  padding:1.5rem;
+  border-radius:16px;
+  background:17141d;
+  box-shadow:-1rem 0 3rem #000;
+  transition:.75s;
+}
+
+.card:hover{
+  transform: translateY(-1rem);
+}
+
+.card:hover~.card{
+  transform: translateX(10px);
 }
